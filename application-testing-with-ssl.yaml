@@ -1,0 +1,37 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: sun-asterisk-app-1
+  labels:
+    app: sun-asterisk
+spec:
+  containers:
+    - name: sun-asterisk-app
+      image: hashicorp/http-echo
+      args:
+        - "-text=sun-asterisk-1"
+---
+
+kind: Pod
+apiVersion: v1
+metadata:
+  name: sun-asterisk-app-2
+  labels:
+    app: sun-asterisk
+spec:
+  containers:
+    - name: sun-asterisk-app
+      image: hashicorp/http-echo
+      args:
+        - "-text=sun-asterisk-2"
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: sun-asterisk-service
+spec:
+  selector:
+    app: sun-asterisk
+  ports:
+    - port: 5678 # Default port for image

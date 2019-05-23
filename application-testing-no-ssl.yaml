@@ -1,0 +1,76 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: apple-app-1
+  labels:
+    app: apple
+spec:
+  containers:
+    - name: apple-app
+      image: hashicorp/http-echo
+      args:
+        - "-text=apple-1"
+---
+
+kind: Pod
+apiVersion: v1
+metadata:
+  name: apple-app-2
+  labels:
+    app: apple
+spec:
+  containers:
+    - name: apple-app
+      image: hashicorp/http-echo
+      args:
+        - "-text=apple-2"
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: apple-service
+spec:
+  selector:
+    app: apple
+  ports:
+    - port: 5678 # Default port for image
+
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: banana-app-1
+  labels:
+    app: banana
+spec:
+  containers:
+    - name: banana-app
+      image: hashicorp/http-echo
+      args:
+        - "-text=banana-1"
+---
+
+kind: Pod
+apiVersion: v1
+metadata:
+  name: banana-app-2
+  labels:
+    app: banana
+spec:
+  containers:
+    - name: banana-app
+      image: hashicorp/http-echo
+      args:
+        - "-text=banana-2"
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: banana-service
+spec:
+  selector:
+    app: banana
+  ports:
+    - port: 5678 # Default port for image

@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-testing-with-ssl
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+spec:
+  tls:
+  - hosts:
+    - k8s.sun-asterisk.vn
+    secretName: sun-asterisk-secret
+  rules:
+  - host: k8s.sun-asterisk.vn
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: sun-asterisk-service
+            servicePort: 5678
