@@ -1,0 +1,22 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: default-service
+  labels:
+    app: default-service
+spec:
+  containers:
+    - name: default-service
+      image: hashicorp/http-echo
+      args:
+        - "-text=Welcome to VeleCorp !!! "
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: default-service
+spec:
+  selector:
+    app: default-service
+  ports:
+    - port: 5678 # Default port for image
