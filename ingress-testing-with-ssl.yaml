@@ -8,10 +8,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - k8s.sun-asterisk.vn
-    secretName: sun-asterisk-secret
+    - test.letrungka.info
+    secretName: letrungka.info-secret
   rules:
-  - host: k8s.sun-asterisk.vn
+  - host: test.letrungka.info
     http:
       paths:
         - path: /
