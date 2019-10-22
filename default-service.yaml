@@ -9,7 +9,7 @@ spec:
     - name: default-service
       image: hashicorp/http-echo
       args:
-        - "-text=Welcome to VeleCorp !!! "
+        - "-text=Welcome here !!! "
 ---
 kind: Service
 apiVersion: v1
