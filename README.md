@@ -4,5 +4,5 @@
 1. in nginx-configmap : use-proxy-protocol: "true"
 2. AWS CLB healcheck: must be via: TCP
 
-# ssl on master
-kubectl create secret tls test-tls --key="tls.key" --cert="tls.crt"
+# ssl
+ kubectl create secret tls letrungka.info-secret --key="tls.key" --cert="tls.crt"
