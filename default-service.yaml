@@ -20,3 +20,20 @@ spec:
     app: default-service
   ports:
     - port: 5678 # Default port for image
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+   name: default-service
+   annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - host: default.letrungka.info
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: default-service
+            servicePort: 5678
