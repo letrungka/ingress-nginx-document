@@ -13,7 +13,8 @@ data:
   server-tokens: "false"
   proxy-body-size: "200m"
   client-body-timeout: "300"
-  keep-alive: "300"
+  # keepalive_timeout is 75s by default, if service uses websocket the value should be larger than 3600s
+  keepalive_timeout: "3600"
   proxy-connect-timeout: "60"
   proxy-read-timeout: "300"
   proxy-send-timeout: "300"
