@@ -7,9 +7,9 @@ metadata:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/part-of: ingress-nginx
 data:
-  set-real-ip-from: "0.0.0.0/0"
-  real_ip_header:    "X-Forwarded-For"
-  real_ip_recursive: "on"
+  proxy-real-ip-cidr: "0.0.0.0/0"
+  enable-real-ip: "true"
+  forwarded-for-header: "X-Forwarded-For"
   server-tokens: "false"
   proxy-body-size: "200m"
   client-body-timeout: "300"
@@ -19,3 +19,5 @@ data:
   proxy-read-timeout: "300"
   proxy-send-timeout: "300"
   use-proxy-protocol: "true"
+  use-forwarded-headers: "true"   # If true, NGINX passes the incoming X-Forwarded-* headers to upstreams.Use this option when NGINX is behind another L7 proxy / load balancer
+  enable-underscores-in-headers: "true"
